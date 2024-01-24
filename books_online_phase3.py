@@ -1,20 +1,22 @@
+# Importing modules
 import requests
 from bs4 import BeautifulSoup
 import csv
 
-# Get book categories
+# Get the book categories
 url = 'https://books.toscrape.com/'
 response = requests.get(url)
+# Create a Soup Object using the html parser
 soup = BeautifulSoup(response.text, 'html.parser')
 categories = [category.text.strip() for category in soup.find('ul', class_='nav-list').find('ul').find_all('a')]
 
-# Iterate through categories and extract product information
+# Iterate through each category and extract product information
 for category in categories:
     category_url = url + f'catalogue/category/books/{category.lower()}/index.html'
     response = requests.get(category_url)
     soup = BeautifulSoup(response.text, 'html.parser')
     
-    # Extracting product information
+    # Extracting product information start with an empty lsit 
     books = []
     for book in soup.find_all('h3'):
         title = book.a['title']
@@ -28,5 +30,6 @@ for category in categories:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         writer.writerows(books)
-    
+        
+    # Has all categories in seperate CSV files but not the info
     print(f'Data for {category} written to {filename}')
