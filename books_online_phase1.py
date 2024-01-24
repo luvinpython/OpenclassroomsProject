@@ -1,18 +1,19 @@
+# Importing modules  
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
-# Store website in a variable
+# Store the website of Gone with the Wind in a variable
 website = "https://books.toscrape.com/catalogue/gone-with-the-wind_324/index.html"
 
-# Get Request and Status Code
+# Get Request and Status Code to see if website is active 
 response = requests.get(website)
-# print(response.status_code)
+print(response.status_code)
 
-# Create a Soup Object. Use html parser
+# Create a Soup Object using the html parser
 soup = BeautifulSoup(response.content, 'html.parser')
 
-# Extracting information from the website 
+# Extracting each piece of data from the website 
 product_page_url = website
 universal_product_code = soup.find('th', string='UPC').find_next('td').get_text()
 book_title = soup.find('h1').get_text()
@@ -39,8 +40,9 @@ data = {
     'image_url': [image_url],
 }
 
-# use pandas to have dataframe 
+# use pandas library to create dataframe 
 df = pd.DataFrame(data)
 
-# Write to CSV file with book_info.csv
-df.to_csv('book_info.csv', index=False)
+# Write the info to a CSV file titled Gone_with_the_Wind
+
+df.to_csv('Gone_with _the_Wind.csv', index=False)
