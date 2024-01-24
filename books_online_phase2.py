@@ -1,10 +1,14 @@
+# Importing modules 
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-# Main scraping logic
+# Store the website and travel category in a variable
 base_url = "https://books.toscrape.com/catalogue/category/books/travel_2/index.html"
 all_books_data = pd.DataFrame()
+
+#Create a while Loop 
+# Create a Soup Object using the html parser
 
 while True:
     response = requests.get(base_url)
@@ -64,5 +68,6 @@ while True:
         # Stop the the loop if there is no "Next" button
         break
 
-# Write all info from just the TRAVEL category to the CSV file, the pound character still has character in front I can't remove.
-all_books_data.to_csv('travel_books_info.csv', index=False)
+# Write all info from just the TRAVEL books category to the CSV file. Currently 11 books 
+# the pound character still has character in front I can't remove.
+all_books_data.to_csv('travel_books_category.csv', index=False)
