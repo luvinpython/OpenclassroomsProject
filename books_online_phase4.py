@@ -1,3 +1,4 @@
+# Importing modules
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
@@ -7,6 +8,7 @@ import os
 # Get book categories
 url = 'https://books.toscrape.com/'
 response = requests.get(url)
+# Create a Soup Object using the html parser
 soup = BeautifulSoup(response.text, 'html.parser')
 categories = [category.text.strip() for category in soup.find('ul', class_='nav-list').find('ul').find_all('a')]
 
@@ -42,4 +44,5 @@ for category in categories:
 excel_filename = 'all_books.xlsx'
 all_books_df.to_excel(excel_filename, index=False)
 
+# Didn't save each image file but just saved a blank Excel document
 print(f'Data written to {excel_filename}')
