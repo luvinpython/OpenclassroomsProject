@@ -6,7 +6,7 @@ import pandas as pd
 # create a function to make code easier to read 
 
 def process_single_book(website):
-    # Get Request and Status Code
+    # Get Request and Status Code showing user the website is available
     response = requests.get(website, verify=True)
 
     # Create a Soup Object using the html parser
