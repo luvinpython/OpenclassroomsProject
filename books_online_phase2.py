@@ -1,16 +1,18 @@
-# Importing modules 
+# Importing modules needed for this project
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+
+# create a function to make code easier to read 
 
 def process_single_book(website):
     # Get Request and Status Code
     response = requests.get(website, verify=True)
 
-    # Create a Soup Object. Use html parser
+    # Create a Soup Object using the html parser
     soup = BeautifulSoup(response.content, 'html.parser')
 
-    # Extracting information
+    # Extracting each piece of data from the website as done before 
     product_page_url = website
     universal_product_code = soup.find('th', string='UPC').find_next('td').get_text()
     book_title = soup.find('h1').get_text()
@@ -23,7 +25,7 @@ def process_single_book(website):
     review_rating = soup.find('p', class_='star-rating')['class'][1]
     image_url = soup.find('img')['src']
 
-    # Create a DataFrame
+    # Create a DataFrame using pandas
     data = {
         'product_page_url': [product_page_url],
         'universal_product_code (upc)': [universal_product_code],
@@ -48,7 +50,7 @@ while True:
     soup = BeautifulSoup(response.content, 'html.parser')
     book_links = soup.select('.product_pod h3 a')
 
-    # Create a for loop and loop through each book link
+    # Create a for loop then loop through each book link
     for link in book_links:
         # Create the full book URL
         book_url = f"https://books.toscrape.com/catalogue{link['href'][8:]}"
