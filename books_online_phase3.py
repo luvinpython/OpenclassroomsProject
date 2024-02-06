@@ -1,3 +1,4 @@
+# Importing modules needed for this project
 import requests
 from bs4 import BeautifulSoup
 import csv
@@ -5,7 +6,7 @@ import csv
 # Create a session object
 session = requests.Session()
 
-# Function to scrape books from a category
+# Function to scrape books from a category and create while loop
 def scrape_books(category_url, category_name):
     books = []
     while True:
