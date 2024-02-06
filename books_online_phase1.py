@@ -1,9 +1,9 @@
-# Importing modules  
+# Importing modules needed for this project
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 
-# Store the website of Gone with the Wind in a variable
+# Store the website url of Gone with the Wind book in a variable
 website = "https://books.toscrape.com/catalogue/gone-with-the-wind_324/index.html"
 
 # Get Request and Status Code to see if website is active 
@@ -26,7 +26,7 @@ category = category_element.find_next('a').get_text() if category_element else N
 review_rating = soup.find('p', class_='star-rating')['class'][1]
 image_url = soup.find('img')['src']
 
-# Create a DataFrame
+# Create a DataFrame using pandas module
 data = {
     'product_page_url': [product_page_url],
     'universal_product_code (upc)': [universal_product_code],
@@ -40,9 +40,8 @@ data = {
     'image_url': [image_url],
 }
 
-# use pandas library to create dataframe 
+# use pandas library to create dataframe as it formats data correctly
 df = pd.DataFrame(data)
 
 # Write the info to a CSV file titled Gone_with_the_Wind
-
 df.to_csv('Gone_with _the_Wind.csv', index=False)
