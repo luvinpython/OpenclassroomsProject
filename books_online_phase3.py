@@ -6,7 +6,7 @@ import csv
 # Create a session object
 session = requests.Session()
 
-# Function to scrape books from a category and create while loop
+# Function to scrape books from a category and create while loop starting with empty loop
 def scrape_books(category_url, category_name):
     books = []
     while True:
