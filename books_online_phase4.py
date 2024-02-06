@@ -1,3 +1,4 @@
+# Importing modules needed for this project
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
@@ -6,6 +7,7 @@ import os
 # Create a session object
 session = requests.Session()
 
+# Create a function
 def sanitize_filename(filename):
     return ''.join(char for char in filename if char.isalnum() or char in [' ', '.', '_']).rstrip()
 
