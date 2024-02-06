@@ -1,4 +1,4 @@
-# Importing modules needed for this project
+# Importing modules the needed for this project, added pandas modules
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
