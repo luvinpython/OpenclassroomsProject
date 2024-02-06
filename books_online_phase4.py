@@ -11,6 +11,7 @@ session = requests.Session()
 def sanitize_filename(filename):
     return ''.join(char for char in filename if char.isalnum() or char in [' ', '.', '_']).rstrip()
 
+# Create another function
 def download_image(image_url, filename):
     response = session.get(image_url, stream=True)
     if response.status_code == 200:
@@ -18,7 +19,7 @@ def download_image(image_url, filename):
             for chunk in response.iter_content(1024):
                 file.write(chunk)
 
-# Function to scrape books from a category
+# Function to scrape books from a category and creating a while loop
 def scrape_books(category_url, category_name, save_folder):
     while True:
         response = session.get(category_url)
