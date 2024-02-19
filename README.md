@@ -15,13 +15,16 @@ This project can be adapted in the future to scrape a number of different websit
 
 
 ### Setting up the IDE (optional):
-1. Go to https://www.jetbrains.com/pycharm/ and download the program for your given operating system. 
-Or to https://code.visualstudio.com/ to use VS Code 
-2. Download python from https://www.python.org/downloads/ version 3.12.1 or higher for your specific operating system. 
-3. Open it and create a new project
-4. Download the code
-5. Extract the code to preferred location
-6. In the IDE go to file open and navigate to the location you extracted the code from and select the main.py
+1. Go to https://www.jetbrains.com/pycharm/
+   and download the program for your given operating system. 
+    Or to https://code.visualstudio.com/
+   to use VS Code if you prefer
+3. Download python
+   from https://www.python.org/downloads/ version 3.12.1 or higher for your specific operating system. 
+5. Open it and create a new project
+6. Download the code
+7. Extract the code to preferred location
+8. In the IDE go to file open and navigate to the location you extracted the code from and select the main.py
 (optional) Navigate the the extracted folder location and double click the main.py file and it will run automtically in the terminal
 
 ### Instructions for Terminal (Windows):
