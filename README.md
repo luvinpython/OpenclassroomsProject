@@ -1,8 +1,10 @@
 # Python Book Inventory Application
 Below is the info on how to run the Python application for the Price Monitoring System Project from the website: 
+
 https://books.toscrape.com/
 
 The project does require a basic understanding of the Python programming language and more info for Python can be found at:
+
 https://www.python.org/
 
 ## The Program
