@@ -68,6 +68,6 @@ This project can be adapted in the future to scrape a number of different websit
 
     $ python3 -m pip install -r requirements.txt
 
-5. Open and run the file allcategories.py to download product data in CSV format and product images.
+5. Open and run the file books_online_phase1.py to download the first phase of this project.
 
     $ python main.py
